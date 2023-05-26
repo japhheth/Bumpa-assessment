@@ -1,5 +1,5 @@
-import { ChakraProvider, theme, Text } from "@chakra-ui/react";
-import AppRouter from "./components/AppRouter";
+import { ChakraProvider, theme } from "@chakra-ui/react";
+import AppRouter from "./router";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
