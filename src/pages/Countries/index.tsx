@@ -1,5 +1,13 @@
+import { useState } from "react";
+import { Box } from "@chakra-ui/react";
+import ContriesHeader from "./components/CountriesHeader";
+
 const Countries = () => {
-  return <div>Countries</div>;
+  return (
+    <Box>
+      <ContriesHeader />
+    </Box>
+  );
 };
 
 export default Countries;

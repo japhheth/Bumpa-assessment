@@ -4,12 +4,12 @@ import Header from "../navbar";
 
 const Layout = () => {
   return (
-    <div>
+    <Box>
       <Header />
-      <Box pt="24">
+      <Box pt="24" px={[3, 4, 6, 10]} backgroundColor="#FAFAFA" height="100vh">
         <Outlet />
       </Box>
-    </div>
+    </Box>
   );
 };
 

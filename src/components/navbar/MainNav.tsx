@@ -2,7 +2,6 @@ import { Flex, Box, Text, useColorMode } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "../ColorModeSwitcher/ColorModeSwitcher";
 
 const MainNav = () => {
-  const { colorMode } = useColorMode();
   return (
     <Flex
       w="100"
@@ -12,10 +11,7 @@ const MainNav = () => {
       justify="space-between"
     >
       <Box>
-        <Text
-          color={colorMode === "light" ? "black" : "white"}
-          fontWeight="semibold"
-        >
+        <Text color="current" fontWeight="semibold">
           Where are we in the world ?
         </Text>
       </Box>
