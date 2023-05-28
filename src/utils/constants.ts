@@ -5,3 +5,5 @@ export enum StatusCode {
   InternalServerError = 500,
   ResourceNotFound = 417,
 }
+
+export const DROPDOWN_PLACEHOLDER = "Filter by Region";

@@ -1,11 +1,8 @@
-type KeyValuePair = {
-  text: string;
-  value: string;
-};
+import { KeyValuePair } from "../../types";
 
 export const regionOptions: Array<KeyValuePair> = [
   { text: "Africa", value: "Africa" },
-  { text: "America", value: "America" },
+  { text: "Americas", value: "Americas" },
   { text: "Asia", value: "Asia" },
   { text: "Europe", value: "Europe" },
   { text: "Oceania", value: "Oceania" },

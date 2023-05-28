@@ -1,19 +1,24 @@
-import { useState } from "react";
 import {
-  Select,
   Box,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   Button,
+  useColorMode,
 } from "@chakra-ui/react";
 import { FaChevronDown } from "react-icons/fa";
-import { regionOptions } from "./defs";
+import { KeyValuePair } from "../../../types";
+import { DROPDOWN_PLACEHOLDER } from "../../../utils/constants";
 
-const Dropdown = () => {
-  const [selected, setSelected] = useState<string>("");
+type DropdownProps = {
+  options: Array<KeyValuePair>;
+  handleSelectedRegion: (value: string) => void;
+  region: string;
+};
 
+const Dropdown = ({ options, handleSelectedRegion, region }: DropdownProps) => {
+  const { colorMode } = useColorMode();
   return (
     <Box>
       <Menu matchWidth>
@@ -22,18 +27,25 @@ const Dropdown = () => {
           width={["full", "200px"]}
           as={Button}
           rightIcon={<FaChevronDown />}
-          backgroundColor="white"
+          backgroundColor={colorMode === "light" ? "white" : "#1A202C"}
           border="1px"
           borderColor="gray.200"
         >
-          {selected ? selected : "Filter by Region"}
+          {region ? region : DROPDOWN_PLACEHOLDER}
         </MenuButton>
         <MenuList>
-          {regionOptions.map(({ text, value }, index) => (
+          {region ? (
+            <MenuItem
+              onClick={() => handleSelectedRegion(DROPDOWN_PLACEHOLDER)}
+            >
+              All
+            </MenuItem>
+          ) : null}
+          {options.map(({ text, value }, index) => (
             <MenuItem
               key={`region-${text}-${index}`}
               value={value}
-              onClick={() => setSelected(value)}
+              onClick={() => handleSelectedRegion(value)}
             >
               {text}
             </MenuItem>

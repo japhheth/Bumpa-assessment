@@ -6,7 +6,10 @@ import ErrorBoundary from "../utils/errorboundary";
 // Countries
 const Countries = lazy(() => import("../pages/Countries"));
 
-const RouteWrapper = (children: React.ReactNode | null, height?: string) => (
+//Country Detail
+const CountryDetail = lazy(() => import("../pages/CountryDetail"));
+
+const RouteWrapper = (children: React.ReactNode | null) => (
   <ErrorBoundary>
     <Suspense>{children}</Suspense>
   </ErrorBoundary>
@@ -18,6 +21,7 @@ const AppRouter: FC = () => {
       <Routes>
         <Route path="/" element={RouteWrapper(<Layout />)}>
           <Route path="/countries" element={<Countries />} />
+          <Route path="/countries/country/:id" element={<CountryDetail />} />
         </Route>
       </Routes>
     </Router>
