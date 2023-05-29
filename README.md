@@ -1,5 +1,12 @@
-This project was bootstrapped with
-[Create React App](https://github.com/facebook/create-react-app).
+Bumpa Assessment solution
+
+## Stack
+
+React
+Typescript
+Chakra-ui
+Redux/toolkit
+[REST Countries API](https://restcountries.com/)
 
 ## Available Scripts
 
@@ -10,8 +17,13 @@ In the project directory, you can run:
 Runs the app in the development mode.<br /> Open
 [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br /> You will also see any lint errors
-in the console.
+![Light Mode](https://github.com/japhheth/Bumpa-assessment/blob/main/docs/Light-mode.png?raw=true)
+
+![Dark Mode](https://github.com/japhheth/Bumpa-assessment/blob/main/docs/Dark-mode.png?raw=true)
+
+![Search](https://github.com/japhheth/Bumpa-assessment/blob/main/docs/Search.png?raw=true)
+
+![Filter](https://github.com/japhheth/Bumpa-assessment/blob/main/docs/Filter.png?raw=true)
 
 ### `yarn test`
 
@@ -19,6 +31,8 @@ Launches the test runner in the interactive watch mode.<br /> See the section
 about
 [running tests](https://facebook.github.io/create-react-app/docs/running-tests)
 for more information.
+
+![Test Preview](https://github.com/japhheth/Bumpa-assessment/blob/main/docs/Test-cases.png?raw=true)
 
 ### `yarn build`
 
@@ -50,10 +64,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for
 small and middle deployments, and you shouldn’t feel obligated to use this
 feature. However we understand that this tool wouldn’t be useful if you couldn’t
 customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
