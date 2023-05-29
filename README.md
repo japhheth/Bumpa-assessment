@@ -3,9 +3,13 @@ Bumpa Assessment solution
 ## Stack
 
 React
+
 Typescript
+
 Chakra-ui
+
 Redux/toolkit
+
 [REST Countries API](https://restcountries.com/)
 
 ## Available Scripts
