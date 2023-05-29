@@ -48,9 +48,8 @@ const ContriesHeader = () => {
       toast.error(`Region ${message} `);
     };
     setRegion(region);
-
+    if (inputRef?.current?.value) inputRef.current.value = "";
     if (region === DROPDOWN_PLACEHOLDER) {
-      if (inputRef?.current?.value) inputRef.current.value = "";
       dispatch(fetchCountries({ onFailure }));
     } else {
       dispatch(fetchCountriesByRegion({ region, onFailure }));
