@@ -1,5 +1,10 @@
 import { FC, lazy, Suspense } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import Layout from "../components/Layout";
 import ErrorBoundary from "../utils/errorboundary";
 
@@ -23,6 +28,7 @@ const AppRouter: FC = () => {
           <Route path="/countries" element={<Countries />} />
           <Route path="/country/:id" element={<CountryDetail />} />
         </Route>
+        <Route path="*" element={<Navigate replace to="/countries" />} />
       </Routes>
     </Router>
   );
