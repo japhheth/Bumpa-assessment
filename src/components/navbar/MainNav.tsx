@@ -1,4 +1,4 @@
-import { Flex, Box, Text, useColorMode } from "@chakra-ui/react";
+import { Flex, Box, Text } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "../ColorModeSwitcher/ColorModeSwitcher";
 
 const MainNav = () => {

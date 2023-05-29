@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Box } from "@chakra-ui/react";
 import ContriesHeader from "./components/CountriesHeader";
 import CountryList from "./components/CountryList";
