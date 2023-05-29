@@ -21,7 +21,7 @@ const AppRouter: FC = () => {
       <Routes>
         <Route path="/" element={RouteWrapper(<Layout />)}>
           <Route path="/countries" element={<Countries />} />
-          <Route path="/countries/country/:id" element={<CountryDetail />} />
+          <Route path="/country/:id" element={<CountryDetail />} />
         </Route>
       </Routes>
     </Router>

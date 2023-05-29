@@ -25,15 +25,13 @@ export const fetchCountries = createAsyncThunk(
 );
 
 export const fetchCountriesByName = createAsyncThunk(
-  "/countries/get-countries",
+  "/get-countries",
   async (
     { name, onFailure }: IfetchCountriesByNameArgs,
     { rejectWithValue }
   ) => {
     try {
-      const response: ICountries[] = await http.get(
-        `/name/${name}?fullText=true`
-      );
+      const response: ICountries[] = await http.get(`/name/${name}`);
       return response;
     } catch (error: any) {
       if (onFailure) onFailure(error);
@@ -43,7 +41,7 @@ export const fetchCountriesByName = createAsyncThunk(
 );
 
 export const fetchCountriesByRegion = createAsyncThunk(
-  "/countries/get-countries-by-region",
+  "/get-countries-by-region",
   async (
     { region, onFailure }: IfetchCountriesByRegionsArgs,
     { rejectWithValue }

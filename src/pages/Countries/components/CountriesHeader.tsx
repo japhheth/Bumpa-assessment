@@ -6,30 +6,30 @@ import Dropdown from "../../../components/form/Dropdown";
 import { regionOptions } from "../defs";
 import {
   fetchCountries,
-  setFilterdCountries,
+  fetchCountriesByName,
+  fetchCountriesByRegion,
 } from "../../../features/countries/slice";
-import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { useAppDispatch } from "../../../store/hooks";
 import { DROPDOWN_PLACEHOLDER } from "../../../utils/constants";
 
 const ContriesHeader = () => {
   const dispatch = useAppDispatch();
-  const { countries } = useAppSelector((state) => state.countries);
   const [region, setRegion] = useState<string>("");
   const inputRef = createRef<HTMLInputElement>();
 
   const handleSearchCountry = (name: string) => {
-    const _countries = [...countries];
-
-    const filteredCountriesByName = _countries.filter(
-      ({ name: { official } }) =>
-        official.toLowerCase().includes(name.toLowerCase())
-    );
-
-    if (filteredCountriesByName.length > 0) {
-      dispatch(setFilterdCountries(filteredCountriesByName));
-    } else {
-      toast.error("Unable to find countries");
+    if (region) {
+      setRegion("");
     }
+    const onFailure = (error: any) => {
+      const {
+        data: { message },
+      } = error;
+
+      toast.error(`Country ${message} `);
+    };
+
+    dispatch(fetchCountriesByName({ name, onFailure }));
   };
 
   const handleClearSearch = () => {
@@ -39,25 +39,21 @@ const ContriesHeader = () => {
     dispatch(fetchCountries({ onFailure }));
   };
 
-  const handleSelectedRegion = (value: string) => {
-    const onFailure = () => {};
-    setRegion(value);
+  const handleSelectedRegion = (region: string) => {
+    const onFailure = (error: any) => {
+      const {
+        data: { message },
+      } = error;
 
-    if (value === DROPDOWN_PLACEHOLDER) {
+      toast.error(`Region ${message} `);
+    };
+    setRegion(region);
+
+    if (region === DROPDOWN_PLACEHOLDER) {
       if (inputRef?.current?.value) inputRef.current.value = "";
       dispatch(fetchCountries({ onFailure }));
     } else {
-      const _countries = [...countries];
-
-      const filteredCountriesByRegion = _countries.filter(
-        ({ region }) => region.toLowerCase() === value.toLowerCase()
-      );
-
-      if (filteredCountriesByRegion.length > 0) {
-        dispatch(setFilterdCountries(filteredCountriesByRegion));
-      } else {
-        toast.error("Unable to find countries by region");
-      }
+      dispatch(fetchCountriesByRegion({ region, onFailure }));
     }
   };
 

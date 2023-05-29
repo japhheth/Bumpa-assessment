@@ -11,7 +11,7 @@ const MainNav = () => {
       justify="space-between"
     >
       <Box>
-        <Text color="current" fontWeight="semibold">
+        <Text color="current" fontWeight="semibold" as="h3" role="main-header">
           Where are we in the world ?
         </Text>
       </Box>

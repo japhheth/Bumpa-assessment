@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchCountries } from "./thunkActions";
+import {
+  fetchCountries,
+  fetchCountriesByName,
+  fetchCountriesByRegion,
+} from "./thunkActions";
 import { ICountries } from "../../types/countries";
 
 interface InitialState {
@@ -35,6 +39,30 @@ export const countriesSlice = createSlice({
         state.loading = false;
       })
       .addCase(fetchCountries.rejected, (state) => {
+        state.loading = false;
+      });
+
+    builder
+      .addCase(fetchCountriesByName.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchCountriesByName.fulfilled, (state, { payload }) => {
+        state.countries = payload || [];
+        state.loading = false;
+      })
+      .addCase(fetchCountriesByName.rejected, (state) => {
+        state.loading = false;
+      });
+
+    builder
+      .addCase(fetchCountriesByRegion.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchCountriesByRegion.fulfilled, (state, { payload }) => {
+        state.countries = payload || [];
+        state.loading = false;
+      })
+      .addCase(fetchCountriesByRegion.rejected, (state) => {
         state.loading = false;
       });
   },

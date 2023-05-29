@@ -60,6 +60,7 @@ const SearchInput = ({
             ref={extInputRef ?? inputRef}
             id="searchInput"
             color="current"
+            role="search"
           />
           <InputRightElement>
             <MdClear

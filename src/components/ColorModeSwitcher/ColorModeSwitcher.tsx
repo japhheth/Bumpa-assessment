@@ -25,6 +25,7 @@ export const ColorModeSwitcher: React.FC<ColorModeSwitcherProps> = (props) => {
       rightIcon={<SwitchIcon />}
       aria-label={`Switch to ${text} mode`}
       {...props}
+      role="color-mode-button"
     >
       {text} mode
     </Button>

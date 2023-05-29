@@ -30,6 +30,7 @@ const Dropdown = ({ options, handleSelectedRegion, region }: DropdownProps) => {
           backgroundColor={colorMode === "light" ? "white" : "#1A202C"}
           border="1px"
           borderColor="gray.200"
+          role="dropdown-button"
         >
           {region ? region : DROPDOWN_PLACEHOLDER}
         </MenuButton>

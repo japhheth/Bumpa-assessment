@@ -42,6 +42,7 @@ const Country = ({ country }: CountryProps) => {
           objectFit="cover"
           src={png}
           alt={`${official}-flag`}
+          role="img"
         />
       </Box>
       <CardHeader>
