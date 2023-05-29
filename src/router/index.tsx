@@ -25,10 +25,10 @@ const AppRouter: FC = () => {
     <Router>
       <Routes>
         <Route path="/" element={RouteWrapper(<Layout />)}>
-          <Route path="/countries" element={<Countries />} />
+          <Route index element={<Countries />} />
           <Route path="/country/:id" element={<CountryDetail />} />
         </Route>
-        <Route path="*" element={<Navigate replace to="/countries" />} />
+        <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </Router>
   );

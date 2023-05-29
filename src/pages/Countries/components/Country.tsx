@@ -30,7 +30,7 @@ const Country = ({ country }: CountryProps) => {
 
   const navigateToCountryDetails = () => {
     dispatch(setCountry(country));
-    navigate(`/countries/country/${official}`);
+    navigate(`/country/${official}`);
   };
 
   return (
